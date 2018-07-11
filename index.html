@@ -101,15 +101,16 @@
       <p><i class="fa fa-envelope fa-fw w3-text-grey w3-xxlarge w3-margin-right"> </i> Email: abuabudidinding@gmail.com</p>
     </div><br>
     <p>Lets get in touch. Send me a message:</p>
-
-    <form method="post" action="pesan.php">
-        <input type="text" name="name" class="form-control w3-input w3-padding-16" placeholder="Name" required>
-        <br>
-        <input type="text" name="email" class="form-control w3-input w3-padding-16" placeholder="Email" required>
-        <br>
-        <textarea name="message" class="form-control w3-input w3-padding-16" placeholder="Messages" rows="4" required></textarea><br>
-        <input type="submit" class="form-control submit w3-input w3-grey w3-padding-large" value="Send Messages">
-    </form>
+    <div class="contact-form">
+        <form action="contact-form-handler.php" method="POST">
+          <input type="text" name="name" class="w3-input form-control" placeholder="Your Name" required>
+          <br>
+          <input type="email" name="email" class="w3-input form-control" placeholder="Your Email" required>
+          <br>
+            <textarea name="message" class="w3-input form-control" placeholder="Your Massages" rows="4" required ></textarea> <br>
+            <input type="submit" class="w3-btn form-control submit" value="SEND MESSAGES">
+        </form>
+    </div>
   <!-- End Contact Section -->
   </div>
   
