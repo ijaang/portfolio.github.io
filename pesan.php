@@ -1,23 +1,27 @@
 <?php
     $name = $_POST['name'];
-    $visitor_email = $_POST['email'];
-    $message = $_POST['messages'];
-
-    $email_from = 'abuabudidinding@gmail.com';
-
-    $email_subject = "New Form Submission";
-
-    $email_body = "User Name: $name.\n".
-                  "User Email: $visitor_email.\n".
-                  "User Message: $message.\n";
-    
-    $to = "abuabudidinding2@gmail.com";
-
-    $headers = "From: $email_from \r\n";
-
-    $headers = "Reply-To: $visitor_email \r\n";
-
-    mail($to,$email_subject,$email_body,$headers);
-    header("Location: index.html");
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+    $to = "abuabudidinding@gmail.com";
+    $message = "Dear, <br /> <br />". $message;
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
+    // More headers
+    $headers .= 'From:'.$name.' <'.$email.'>'."\r\n" . 'Reply-To: '.$name.' <'.$email.'>'."\r\n";
+    $headers .= 'Cc: abuabudidinding1@gmail.com' . "\r\n"; //untuk cc lebih dari satu tinggal kasih koma
+    @mail($to,$message,$headers);
+    if (@mail) { ?>
+                    <script language="javascript" type="text/javascript">
+                    alert('Thank you for the message. We will contact you shortly.');
+                    window.location = 'index.html';
+                    </script>
+                    <?php
+                } else { ?>
+                            <script language="javascript" type="text/javascript">
+                            alert('Message failed. Please, send an email to xxxx@email.co.id');
+                            window.location = 'index.html';
+                            </script>
+                            <?php
+                        }
 
 ?>
